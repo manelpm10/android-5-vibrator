@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/etNumVibrations" />
 
     <EditText
         android:id="@+id/etNumVibrations"
@@ -30,6 +30,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="number"
+        android:text="0"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 

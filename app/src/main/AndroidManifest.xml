@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
 
+        <!-- This way to declare receiver is not working in Android 8 (Oreo) -->
         <receiver
             android:name="es.pue.android.vibrator.receiver.VibratorReceiver"
             android:enabled="true"
