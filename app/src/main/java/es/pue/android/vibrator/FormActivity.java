@@ -1,7 +1,9 @@
 package es.pue.android.vibrator;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 
 public class FormActivity extends AppCompatActivity {
 
+    static final int REQUEST_IMAGE_CAPTURE = 1;
     private ImageView ivImage;
 
     @Override
@@ -41,9 +44,21 @@ public class FormActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.opCam:
-                Log.i("MENU", "Click!");
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (null != takePictureIntent.resolveActivity(getPackageManager())) {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                }
                 break;
         }
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            ivImage.setImageBitmap(imageBitmap);
+        }
     }
 }
