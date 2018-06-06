@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Vibrator</string>
+    <string name="litsNumVibrations">Num. vibrations</string>
+    <string name="litsLetsDance">Lets dance!</string>
+</resources>
